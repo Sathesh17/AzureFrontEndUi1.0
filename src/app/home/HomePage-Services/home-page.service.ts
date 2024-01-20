@@ -20,7 +20,7 @@ export class HomePageService {
 
   //Getting the Products from backend API
   getProducts():Observable<IProduct[]>{
-    let tempVar = this.http.get<IProduct[]>('https://localhost:5001/api/home/getproducts')
+    let tempVar = this.http.get<IProduct[]>('https://localhost:44340/api/home/GetProducts')
     console.log(tempVar)
     return tempVar
   }
@@ -31,7 +31,7 @@ export class HomePageService {
     pay={cardNumber:CardNumber1,CVV:cvv1,Expiry:ex,ProdCost:cost,ProdID:pid}
     console.log(pay)
 
-    let tempVar = this.http.post<boolean>('http://localhost:7181/api/PaymentFunction',pay)
+    let tempVar = this.http.post<boolean>('http://localhost:44340/api/PaymentFunction',pay)
     return tempVar
   }
 
@@ -61,7 +61,7 @@ export class HomePageService {
    
     formData.append('image', image);
     console.log(formData)
-    let result=this.http.post<Response>('https://localhost:5001/api/admin/upload',formData).pipe(catchError(this.errorHandler))
+    let result=this.http.post<Response>('https://localhost:44340/api/admin/upload',formData).pipe(catchError(this.errorHandler))
     console.log(result)
     return result
   }
