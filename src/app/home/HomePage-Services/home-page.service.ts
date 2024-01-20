@@ -20,7 +20,7 @@ export class HomePageService {
 
   //Getting the Products from backend API
   getProducts():Observable<IProduct[]>{
-    let tempVar = this.http.get<IProduct[]>('https://localhost:44340/api/home/GetProducts')
+    let tempVar = this.http.get<IProduct[]>('https://quickkart-webservice17.azurewebsites.net/api/home/GetProducts')
     console.log(tempVar)
     return tempVar
   }
@@ -51,7 +51,7 @@ export class HomePageService {
     user={emailID:userEmailID, password:userPassword,usertype:type};
     console.log(user)
 
-    let result=this.http.post<number>('https://login-service-qk.azurewebsites.net/api/LoginFunction?code=bVFKz69iYgDhe0W34IRoIn8S9FAoV_nWo-hHOY34OpvhAzFuULBixw==',user)
+    let result=this.http.post<number>('https://loginservice123.azurewebsites.net/api/LoginFunction?code=56QQq62oP2gxSj9nR6Ns5dD4MRBK5WMql41PjKaFEkmxAzFuifOwLQ==',user)
     return result
 
   }
